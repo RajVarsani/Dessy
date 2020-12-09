@@ -29,6 +29,7 @@ public class tryjava {
         g1 = sc.nextInt();
         System.err.println();
         b1 = sc.nextInt();
+        System.err.println();
 
         // reading image
 
@@ -49,11 +50,15 @@ public class tryjava {
         int[][][] rgbarr = new int[height][width][3];
 
         // // cooosing an option
-        // int chice;
-        // chice = sc.nextInt();
+
+        int chice;
+
+        System.out.println("choose how you want to proceed : \n 1.coloured \n 2.grayscale\n");
+
+        chice = sc.nextInt();
         long start = System.currentTimeMillis();
 
-        // if (chice == 1) {
+        if (chice == 1) {
 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
@@ -106,46 +111,47 @@ public class tryjava {
                 System.out.println(i++);
 
             }
-        // }
-        // if (chice == 2) {
+        }
+        if (chice == 2) {
 
-        //     for (int y = 0; y < height; y++) {
-        //         for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
 
-        //             int color = img.getRGB(x, y);
-        //             int a = 255;
-        //             int b = color & 0xff;
-        //             int g = (color & 0xff00) >> 8;
-        //             int r = (color & 0xff0000) >> 16;
+                    int color = img.getRGB(x, y);
+                    int a = 255;
+                    int b = color & 0xff;
+                    int g = (color & 0xff00) >> 8;
+                    int r = (color & 0xff0000) >> 16;
 
-        //             // main operation begins
-        //             // arrayma save krta pela devide kari nakhyu. nahitar array ma value change
-        //             // karvama
-        //             // time jay
-        //             // aa rgb array n hoy to pan chale pan p6i koi feature add karvu hoy to pa6i aki
-        //             // process karvi nahi
+                    // main operation begins
+                    // arrayma save krta pela devide kari nakhyu. nahitar array ma value change
+                    // karvama
+                    // time jay
+                    // aa rgb array n hoy to pan chale pan p6i koi feature add karvu hoy to pa6i aki
+                    // process karvi nahi
 
-        //             // // exception handling for 256
-        //             // km k value ghati jay atle dim pan thay jay photo a o6u karvu pade
+                    // // exception handling for 256
+                    // km k value ghati jay atle dim pan thay jay photo a o6u karvu pade
 
-        //             int clr;
-        //             clr = (r + g + b) / 3;
-        //             rgbarr[y][x][0] = rgbarr[y][x][1] = rgbarr[y][x][2] = clr;
-        //             // making colour
+                    int clr;
+                    clr = (r + g + b) / 3;
+                    clr = (clr / hrdnsOfRslt) * hrdnsOfRslt;
+                    rgbarr[y][x][0] = rgbarr[y][x][1] = rgbarr[y][x][2] = clr;
+                    // making colour
 
-        //             color = (a << 24) | (rgbarr[y][x][0] << 16) | (rgbarr[y][x][1] << 8) | rgbarr[y][x][2];
+                    color = (a << 24) | (rgbarr[y][x][0] << 16) | (rgbarr[y][x][1] << 8) | rgbarr[y][x][2];
 
-        //             // implementing to image
+                    // implementing to image
 
-        //             img.setRGB(x, y, color);
-        //         }
+                    img.setRGB(x, y, color);
+                }
 
-        //         // progress check karva
+                // progress check karva
 
-        //         System.out.println(i++);
+                System.out.println(i++);
 
-        //     }
-        // }
+            }
+        }
 
         long finish = System.currentTimeMillis();
 

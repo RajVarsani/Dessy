@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="399"
+   height="399"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Facebook Home (Clear).svg"
+   inkscape:export-filename="R:\Media\Pictures\Logos\Facebook Home (Clear).png"
+   inkscape:export-xdpi="230.97745"
+   inkscape:export-ydpi="230.97745">
+  <title
+     id="title4481">Facebook Home</title>
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="-18.538997"
+     inkscape:cy="161.20032"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer9"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Facebook Home</dc:title>
+        <dc:date>2013-04-04</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>http://www.reddit.com/user/m-p-3/</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Facebook ©</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>facebook home</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="https://www.facebook.com/brandpermissions/faq.php" />
+        <dc:source>https://www.facebook.com/FacebookMobile</dc:source>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="Facebook Home"
+     style="display:inline"
+     transform="translate(-194.96875,-276.5625)">
+    <g
+       id="g4469">
+      <path
+         id="path3857"
+         d="m 394.46875,276.5625 c -110.18364,0 -199.5,89.31636 -199.5,199.5 0,110.18364 89.31636,199.5 199.5,199.5 2.83069,0 5.63551,-0.0707 8.4375,-0.1875 l 0,-145.625 -30.09375,0 0,-50.1875 30.09375,0 0,-30.125 c 0,-40.94512 16.95752,-65.3125 65.1875,-65.3125 l 40.15625,0 0,50.21875 -25.09375,0 c -18.77812,0 -20.03125,7.0018 -20.03125,20.09375 l -0.0625,25.125 45.46875,0 -5.3125,50.1875 -40.15625,0 0,133.71875 c 76.39106,-27.97052 130.90625,-101.32528 130.90625,-187.40625 0,-110.18364 -89.31636,-199.5 -199.5,-199.5 z"
+         mask="none"
+         style="fill:#3b5998;fill-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3857-4"
+         d="m 468.09898,384.14138 c -48.22998,0 -65.1875,24.36738 -65.1875,65.3125 l 0,30.125 -30.09375,0 0,50.1875 30.09375,0 0,145.625 c 21.05631,-0.87731 41.2788,-4.99429 60.15625,-11.90625 l 0,-133.71875 40.15625,0 5.3125,-50.1875 -45.46875,0 0.0625,-25.125 c 0,-13.09195 1.25313,-20.09375 20.03125,-20.09375 l 25.09375,0 0,-50.21875 -40.15625,0 z"
+         mask="none"
+         style="fill:#ffffff;fill-opacity:1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

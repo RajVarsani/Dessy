@@ -6,6 +6,8 @@ import java.util.Scanner;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
+// import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+
 public class tryjava {
     public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -16,20 +18,28 @@ public class tryjava {
         int hrdnsOfRslt;
         int r1, g1, b1;
 
-        // taking inputs
+        // taking inputs for image path
 
         System.out.print("enter path of image: ");
         inppath = sc.nextLine();
         System.out.println();
+
+        // taking input for result intencity
+
         System.out.print("enter value of hardness of image ( greater than 1 ( multiple of 2 reccomended ) ): ");
         hrdnsOfRslt = sc.nextInt();
-        System.out.println("enter value of extra rgb respectively : \n");
-        r1 = sc.nextInt();
-        System.err.println();
-        g1 = sc.nextInt();
-        System.err.println();
-        b1 = sc.nextInt();
-        System.err.println();
+
+        // Taking Input for image Sharpening
+
+        float SharpeningStrength;
+        System.out.println("enter value of sharprning strenght (0.5 recommended) : \n");
+        SharpeningStrength = sc.nextFloat();
+
+        // Taking Input for image Sharpening repetation
+
+        int SharpeningIndex;
+        System.out.println("enter value of how much time you want to do sharpening: \n");
+        SharpeningIndex = sc.nextInt();
 
         // reading image
 
@@ -45,112 +55,182 @@ public class tryjava {
         int height = img.getHeight();
         int i = 0;
 
-        // creating rgb array
+        // creating rgb array for more effitiency
 
         int[][][] rgbarr = new int[height][width][3];
 
-        // // cooosing an option
+        // cooosing an option
 
         int chice;
 
         System.out.println("choose how you want to proceed : \n 1.coloured \n 2.grayscale\n");
 
         chice = sc.nextInt();
+
         long start = System.currentTimeMillis();
 
+        // taking rgb Value to array
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+
+                int color = img.getRGB(x, y);
+                rgbarr[y][x][2] = color & 0xff;
+                rgbarr[y][x][1] = (color & 0xff00) >> 8;
+                rgbarr[y][x][0] = (color & 0xff0000) >> 16;
+
+            }
+            // progress checking
+            System.out.println(i++);
+
+        }
+
+        i = 0;
+
+        // Sharpening code
+        if (SharpeningIndex > 0) {
+
+            for (int y = 1; y < height - 1; y++) {
+                for (int x = 1; x < width - 1; x++) {
+                    for (int k = 0; k < SharpeningIndex; k++) {
+
+                        // for red
+
+                        rgbarr[y][x][0] = rgbarr[y][x][0]
+                                + (int) (SharpeningStrength * (rgbarr[y][x + 1][0] - rgbarr[y][x - 1][0]));
+
+                        if (rgbarr[y][x][0] > 255) {
+                            rgbarr[y][x][0] = 255;
+                        }
+
+                        else if (rgbarr[y][x][0] < 0) {
+                            rgbarr[y][x][0] = 0;
+                        }
+
+                        // for red
+
+                        rgbarr[y][x][1] = rgbarr[y][x][1]
+                                + (int) (SharpeningStrength * (rgbarr[y][x + 1][1] - rgbarr[y][x - 1][1]));
+
+                        if (rgbarr[y][x][1] > 255) {
+                            rgbarr[y][x][1] = 255;
+                        }
+
+                        else if (rgbarr[y][x][1] < 0) {
+                            rgbarr[y][x][1] = 0;
+                        }
+
+                        // for re1
+
+                        rgbarr[y][x][2] = rgbarr[y][x][2]
+                                + (int) (SharpeningStrength * (rgbarr[y][x + 1][2] - rgbarr[y][x - 1][2]));
+
+                        if (rgbarr[y][x][2] > 255) {
+                            rgbarr[y][x][2] = 255;
+                        }
+
+                        else if (rgbarr[y][x][2] < 0) {
+                            rgbarr[y][x][2] = 0;
+                        }
+                    }
+
+                }
+
+                // progress checking
+
+                System.out.println(i++);
+            }
+        }
+
+        i = 0;
+
+        // coloured Image
+
         if (chice == 1) {
+            // taking extra rgb values for coloured image tuning
+
+            System.out.println("Enter value of extra rgb respectively for tuning : \n");
+            r1 = sc.nextInt();
+            System.out.println();
+            g1 = sc.nextInt();
+            System.out.println();
+            b1 = sc.nextInt();
+            System.out.println();
 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
 
-                    int color = img.getRGB(x, y);
-                    int a = 255;
-                    int b = color & 0xff;
-                    int g = (color & 0xff00) >> 8;
-                    int r = (color & 0xff0000) >> 16;
-
-                    // main operation begins
-                    // arrayma save krta pela devide kari nakhyu. nahitar array ma value change
-                    // karvama
-                    // time jay
-                    // aa rgb array n hoy to pan chale pan p6i koi feature add karvu hoy to pa6i aki
-                    // process karvi nahi
-
-                    // // exception handling for 256
-                    // km k value ghati jay atle dim pan thay jay photo a o6u karvu pade
-
-                    if (r == 256) {
-                        rgbarr[y][x][0] = (r / hrdnsOfRslt) * hrdnsOfRslt;
+                    if (rgbarr[y][x][0] == 255) {
+                        rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt;
                     } else {
-                        rgbarr[y][x][0] = (r / hrdnsOfRslt) * hrdnsOfRslt + r1;
+                        rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt + r1;
                     }
 
-                    if (g == 256) {
-                        rgbarr[y][x][1] = (g / hrdnsOfRslt) * hrdnsOfRslt;
+                    if (rgbarr[y][x][1] == 255) {
+                        rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt;
                     } else {
-                        rgbarr[y][x][1] = (g / hrdnsOfRslt) * hrdnsOfRslt + g1;
+                        rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt + g1;
                     }
 
-                    if (g == 256) {
-                        rgbarr[y][x][2] = (b / hrdnsOfRslt) * hrdnsOfRslt;
+                    if (rgbarr[y][x][2] == 255) {
+                        rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt;
                     } else {
-                        rgbarr[y][x][2] = (b / hrdnsOfRslt) * hrdnsOfRslt + b1;
+                        rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt + b1;
                     }
 
-                    // making colour
-
-                    color = (a << 24) | (rgbarr[y][x][0] << 16) | (rgbarr[y][x][1] << 8) | rgbarr[y][x][2];
-
-                    // implementing to image
-
-                    img.setRGB(x, y, color);
                 }
 
-                // progress check karva
+                // progress checking
 
                 System.out.println(i++);
 
             }
         }
+
+        // Grayscale Image
+
         if (chice == 2) {
 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
 
-                    int color = img.getRGB(x, y);
-                    int a = 255;
-                    int b = color & 0xff;
-                    int g = (color & 0xff00) >> 8;
-                    int r = (color & 0xff0000) >> 16;
+                    rgbarr[y][x][0] = rgbarr[y][x][1] = rgbarr[y][x][2] = (rgbarr[y][x][0] + rgbarr[y][x][1]
+                            + rgbarr[y][x][2]) / 3;
 
-                    // main operation begins
-                    // arrayma save krta pela devide kari nakhyu. nahitar array ma value change
-                    // karvama
-                    // time jay
-                    // aa rgb array n hoy to pan chale pan p6i koi feature add karvu hoy to pa6i aki
-                    // process karvi nahi
+                        rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt;
+                        rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt;
+                        rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt;
 
-                    // // exception handling for 256
-                    // km k value ghati jay atle dim pan thay jay photo a o6u karvu pade
 
-                    int clr;
-                    clr = (r + g + b) / 3;
-                    clr = (clr / hrdnsOfRslt) * hrdnsOfRslt;
-                    rgbarr[y][x][0] = rgbarr[y][x][1] = rgbarr[y][x][2] = clr;
-                    // making colour
-
-                    color = (a << 24) | (rgbarr[y][x][0] << 16) | (rgbarr[y][x][1] << 8) | rgbarr[y][x][2];
-
-                    // implementing to image
-
-                    img.setRGB(x, y, color);
                 }
 
-                // progress check karva
+                // progress checking
 
                 System.out.println(i++);
-
             }
+        }
+
+        i = 0;
+
+        // implementing to Output image
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+
+                int color = img.getRGB(x, y);
+                int a = 255;
+
+                color = (a << 24) | (rgbarr[y][x][0] << 16) | (rgbarr[y][x][1] << 8) | rgbarr[y][x][2];
+
+                // implementing to image
+
+                img.setRGB(x, y, color);
+            }
+
+            // progress checking
+
+            System.out.println(i++);
+
         }
 
         long finish = System.currentTimeMillis();
@@ -160,7 +240,7 @@ public class tryjava {
         // write image
 
         try {
-            f = new File("out.jpg");
+            f = new File("trial outputs/out.jpg");
             ImageIO.write(img, "jpg", f);
             System.out.println("susccesfull image transferred");
             System.out.println("time taken " + timeElapsed + " milisecond");

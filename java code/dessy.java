@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 // import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
-public class tryjava {
+public class dessy {
     public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
 
@@ -159,25 +159,15 @@ public class tryjava {
 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
-
-                    if (rgbarr[y][x][0] == 255) {
-                        rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt;
-                    } else {
+                    if (rgbarr[y][x][0] != 255) {
                         rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt + r1;
                     }
-
-                    if (rgbarr[y][x][1] == 255) {
-                        rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt;
-                    } else {
+                    if (rgbarr[y][x][1] != 255) {
                         rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt + g1;
                     }
-
-                    if (rgbarr[y][x][2] == 255) {
-                        rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt;
-                    } else {
+                    if (rgbarr[y][x][2] != 255) {
                         rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt + b1;
                     }
-
                 }
 
                 // progress checking
@@ -196,12 +186,15 @@ public class tryjava {
 
                     rgbarr[y][x][0] = rgbarr[y][x][1] = rgbarr[y][x][2] = (rgbarr[y][x][0] + rgbarr[y][x][1]
                             + rgbarr[y][x][2]) / 3;
-
+                    if (rgbarr[y][x][0] != 255) {
                         rgbarr[y][x][0] = (rgbarr[y][x][0] / hrdnsOfRslt) * hrdnsOfRslt;
+                    }
+                    if (rgbarr[y][x][1] != 255) {
                         rgbarr[y][x][1] = (rgbarr[y][x][1] / hrdnsOfRslt) * hrdnsOfRslt;
+                    }
+                    if (rgbarr[y][x][2] != 255) {
                         rgbarr[y][x][2] = (rgbarr[y][x][2] / hrdnsOfRslt) * hrdnsOfRslt;
-
-
+                    }
                 }
 
                 // progress checking

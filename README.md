@@ -2,7 +2,7 @@
 
 
 ## Aim of project
-Making easier to make illustration by providing expected visulitasion of image ( for using as refernce while making illustrations ) that how it will look like after making illustration for time effeciency of a designer's work.
+Making easier to make illustration by providing expected visulitasion of image ( for using as refernce while making illustrations ) that how it will look like after making illustration which affects productivity of a designer.
 
 ## Base Functioning :
 Change value of pixals of an image contained in respective segment of values to same value so that it looks like it has been illustrated.

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundclr"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/welcomeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!--            android:visibility="gone">-->
+
+
+        <ImageView
+            android:layout_width="700dp"
+            android:layout_height="750dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="-700dp"
+            android:src="@drawable/maincircle" />
+
+        <ImageButton
+            android:id="@+id/aboutSecButtoSn"
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="460dp"
+            android:layout_marginBottom="220dp"
+            android:background="@drawable/dessylogo" />
+
+        <ImageButton
+            android:id="@+id/selectImagebtn"
+            android:layout_width="99dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selectimage" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/small" />
+
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginRight="170dp"
+            android:layout_marginBottom="250dp"
+            android:src="@drawable/mediumnew" />
+        <LinearLayout
+            android:id="@+id/popupone"
+            android:layout_width="match_parent"
+            android:layout_height="414dp"
+            android:layout_marginTop="-1100dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/popupone" />
+
+            <ImageButton
+                android:id="@+id/colouredProcessButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="-140dp"
+                android:background="@drawable/coloured" />
+
+            <ImageButton
+                android:id="@+id/greyscaleProcessButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/greyscale" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/aboutSec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="900dp"
+            android:layout_height="950dp"
+            android:layout_marginEnd="300dp"
+            android:src="@drawable/topcircleathomepage" />
+
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="-200dp"
+            android:src="@drawable/small" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/medium" />
+        <!--        android:layout_marginBottom="250dp"-->
+
+        <ImageView
+            android:layout_width="470dp"
+            android:layout_height="1300dp"
+            android:layout_marginTop="-1250dp"
+            android:src="@drawable/aboutscrn" />
+
+        <ImageButton
+            android:id="@+id/backfromaboutsec"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-490dp"
+            android:background="@drawable/backbtn" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-15dp"
+            android:src="@drawable/previewbutton" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/bahnshrift"
+            android:text="Hardnes of filter"
+            android:textColor="@color/textcolor"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekbarbtnStrngthoffilter"
+            android:layout_width="220dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:max="255"
+            android:progressBackgroundTint="@color/seekbarcolorblue"
+            android:progressTint="@color/seekbarcolorblue"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:thumbTint="@color/white" />
+
+        <TextView
+            android:id="@+id/textOfExtraRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnshrift"
+            android:text="Extra red"
+            android:textColor="@color/textcolor"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/valueOfExtraRed"
+            android:layout_width="220dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:max="255"
+            android:progressBackgroundTint="@color/seekbarcolorblue"
+            android:progressTint="@color/seekbarcolorblue"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:thumbTint="@color/white"
+
+            />
+
+        <TextView
+            android:id="@+id/textOfExtraGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnshrift"
+            android:text="Extra green"
+            android:textColor="@color/textcolor"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/valueOfExtraGreen"
+            android:layout_width="220dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:max="255"
+            android:progressBackgroundTint="@color/seekbarcolorblue"
+            android:progressTint="@color/seekbarcolorblue"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:thumbTint="@color/white" />
+
+        <TextView
+            android:id="@+id/textOfExtrablue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnshrift"
+            android:text="Extra blue"
+            android:textColor="@color/textcolor"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/valueOfExtraBlue"
+            android:layout_width="220dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:max="255"
+            android:progressBackgroundTint="@color/seekbarcolorblue"
+            android:progressTint="@color/seekbarcolorblue"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:thumbTint="@color/white" />
+
+
+        <TextView
+            android:id="@+id/textOfExtraBrightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bahnshrift"
+            android:text="Extra Brightness"
+            android:textColor="@color/textcolor"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/valueOfExtraBrightness"
+            android:layout_width="220dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="110dp"
+            android:max="255"
+            android:progressBackgroundTint="@color/seekbarcolorblue"
+            android:progressTint="@color/seekbarcolorblue"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:thumbTint="@color/white"
+            android:visibility="gone"/>
+
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/cancelButtonToChoice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/backbtnlogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="30dp"
+                android:text="Cancel"
+                android:textColor="@color/textcolor"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:text="Done"
+                android:textColor="@color/textcolor"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/processDoneBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/forwardbtnlogo" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/popuptwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-700dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/popuptwo" />
+
+        <ImageButton
+            android:id="@+id/saveImage"
+            android:layout_width="240dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="-445dp"
+            android:background="@drawable/jpgexport" />
+
+        <ImageButton
+            android:layout_width="240dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/svgexport" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popupThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-540dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="220dp"
+            android:src="@drawable/newpopupthree" />
+
+        <ImageButton
+            android:id="@+id/goToRaitng"
+            android:layout_width="146dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-98dp"
+            android:background="@drawable/rateyourexpreience" />
+
+        <ImageButton
+            android:id="@+id/remindMeLater"
+            android:layout_width="90dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rmnindmelater" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

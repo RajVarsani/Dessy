@@ -152,13 +152,15 @@ public class MainActivity extends AppCompatActivity {
         selectPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stateOfApp = 1;
-                final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                final Intent pickIntent = new Intent(Intent.ACTION_PICK);
-                pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                final Intent chooseIntent = Intent.createChooser(intent, "Select Image");
-                startActivityForResult(chooseIntent, REQUEST_PICK_IMAGE);
+                if (stateOfApp==0) {
+                    stateOfApp = 1;
+                    final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    final Intent pickIntent = new Intent(Intent.ACTION_PICK);
+                    pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                    final Intent chooseIntent = Intent.createChooser(intent, "Select Image");
+                    startActivityForResult(chooseIntent, REQUEST_PICK_IMAGE);
+                }
             }
         });
 
@@ -202,9 +204,11 @@ public class MainActivity extends AppCompatActivity {
         openAboutSecButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stateOfApp = 5;
-                findViewById(R.id.welcomeScreen).setVisibility(View.GONE);
-                findViewById(R.id.aboutSec).setVisibility(View.VISIBLE);
+                if (stateOfApp==0) {
+                    stateOfApp = 5;
+                    findViewById(R.id.welcomeScreen).setVisibility(View.GONE);
+                    findViewById(R.id.aboutSec).setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -266,10 +270,12 @@ public class MainActivity extends AppCompatActivity {
         seekBarforHardnessOfFilter.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (progress != 0) {
-                    valueOfHardnessOfFilter = progress;
-                } else {
-                    valueOfHardnessOfFilter = 1;
+                if (stateOfApp==2) {
+                    if (progress != 0) {
+                        valueOfHardnessOfFilter = progress;
+                    } else {
+                        valueOfHardnessOfFilter = 1;
+                    }
                 }
             }
             @Override
@@ -277,9 +283,11 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "Hardness of filter:" + valueOfHardnessOfFilter,
-                        Toast.LENGTH_SHORT).show();
-                runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                if (stateOfApp == 2) {
+                    Toast.makeText(MainActivity.this, "Hardness of filter:" + valueOfHardnessOfFilter,
+                            Toast.LENGTH_SHORT).show();
+                    runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                }
             }
         });
         final SeekBar seekbarextraRed = findViewById(R.id.valueOfExtraRed);
@@ -288,7 +296,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                extarRed = progress;
+                if (stateOfApp==2) {
+                    extarRed = progress;
+                }
             }
 
             @Override
@@ -297,9 +307,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "Extra red:" + extarRed,
-                        Toast.LENGTH_SHORT).show();
-                runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                if (stateOfApp == 2) {
+                    Toast.makeText(MainActivity.this, "Extra red:" + extarRed,
+                            Toast.LENGTH_SHORT).show();
+                    runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                }
             }
         });
 
@@ -309,7 +321,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                extraGreen = progress;
+                if (stateOfApp==2) {
+                    extraGreen = progress;
+                }
             }
 
             @Override
@@ -318,9 +332,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "Extra green:" + extraGreen,
-                        Toast.LENGTH_SHORT).show();
-                runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter,extraBrightnessToAdd);
+                if (stateOfApp == 2) {
+                    Toast.makeText(MainActivity.this, "Extra green:" + extraGreen,
+                            Toast.LENGTH_SHORT).show();
+                    runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                }
             }
         });
 
@@ -330,7 +346,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                extraBlue = progress;
+                if (stateOfApp==2) {
+                    extraBlue = progress;
+                }
             }
 
             @Override
@@ -339,9 +357,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "Extra blue:" + extraBlue,
-                        Toast.LENGTH_SHORT).show();
-                runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter,extraBrightnessToAdd);
+                if (stateOfApp == 2) {
+                    Toast.makeText(MainActivity.this, "Extra blue:" + extraBlue,
+                            Toast.LENGTH_SHORT).show();
+                    runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                }
             }
         });
 
@@ -349,9 +369,12 @@ public class MainActivity extends AppCompatActivity {
         seekbarextraBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
 
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                extraBrightnessToAdd = progress;
+               if (stateOfApp==2) {
+                   extraBrightnessToAdd = progress;
+               }
             }
 
             @Override
@@ -360,9 +383,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                if (stateOfApp == 2) {
                 Toast.makeText(MainActivity.this, "Extra Brightness:" + extraBrightnessToAdd,
                         Toast.LENGTH_SHORT).show();
-                runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter,extraBrightnessToAdd);
+
+                    runChnages(bitmap, imageView, pixals, height, width, valueOfHardnessOfFilter, extarRed, extraGreen, extraBlue, choiceOfFilter, extraBrightnessToAdd);
+                }
             }
         });
 
@@ -370,10 +396,19 @@ public class MainActivity extends AppCompatActivity {
         backToChoiceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.popupone).setVisibility(View.VISIBLE);
-                findViewById(R.id.welcomeScreen).setVisibility(View.VISIBLE);
-                findViewById(R.id.editScreen).setVisibility(View.GONE);
-                stateOfApp=1;
+
+                if (stateOfApp==2) {
+                    findViewById(R.id.popupone).setVisibility(View.VISIBLE);
+                    findViewById(R.id.welcomeScreen).setVisibility(View.VISIBLE);
+                    findViewById(R.id.editScreen).setVisibility(View.GONE);
+                    stateOfApp = 1;
+                }else if (stateOfApp==3){
+                    findViewById(R.id.popuptwo).setVisibility(View.GONE);
+                    stateOfApp=2;
+                }else if (stateOfApp==4){
+                    findViewById(R.id.popupThree).setVisibility(View.GONE);
+                    stateOfApp=2;
+                }
             }
         });
 

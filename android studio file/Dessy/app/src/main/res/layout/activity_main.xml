@@ -122,7 +122,7 @@
             android:layout_width="470dp"
             android:layout_height="1300dp"
             android:layout_marginTop="-1250dp"
-            android:src="@drawable/aboutscrn" />
+            android:src="@drawable/finalaboutsec" />
 
         <ImageButton
             android:id="@+id/backfromaboutsec"

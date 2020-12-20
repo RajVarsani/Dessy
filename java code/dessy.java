@@ -10,8 +10,7 @@ import javax.imageio.ImageIO;
 // import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
 public class dessy {
-    public static void main(String args[]) thr
-ows IOException {
+    public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
         BufferedImage img = null;
         File f = null;

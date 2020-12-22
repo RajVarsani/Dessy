@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     private int choiceOfFilter = 0;
 
 
+
     @Override
     public void onBackPressed() {
         if (stateOfApp == 1) {

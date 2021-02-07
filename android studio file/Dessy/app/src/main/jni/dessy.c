@@ -5,7 +5,14 @@ Java_com_example_dessy_MainActivity_blackAndWhite(JNIEnv *env, jclass clazz, jin
                                                   jint height, jint width, jint hardness_of_filter,
                                                   jint extar_red, jint extra_green, jint extra_blue,
                                                   jint choiceOfFilter,
-                                                  jint extra_brightness_to_add) {
+                                                  jint extra_brightness_to_add);
+
+void Java_com_example_dessy_MainActivity_blackAndWhite(JNIEnv *env, jclass clazz, jintArray pixals,
+                                                       jint height, jint width,
+                                                       jint hardness_of_filter, jint extar_red,
+                                                       jint extra_green, jint extra_blue,
+                                                       jint choiceOfFilter,
+                                                       jint extra_brightness_to_add) {
     // TODO: implement blackAndWhite()
 
     jint *pixels = (*env)->GetIntArrayElements(env, pixals, 0);
@@ -48,7 +55,7 @@ Java_com_example_dessy_MainActivity_blackAndWhite(JNIEnv *env, jclass clazz, jin
 
             colors[i + 1] = (colors[i + 1] / hardness_of_filter) * hardness_of_filter + extra_green;
             if(colors[i+1]> 255){
-               colors[i+1]=255;
+                colors[i+1]=255;
             }
 
             colors[i + 2] = (colors[i + 2] / hardness_of_filter) * hardness_of_filter + extar_red;
